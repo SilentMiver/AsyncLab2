@@ -1,7 +1,7 @@
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
-import java.io.IOException
+import java.util.ArrayList
 import kotlin.random.Random
 
 
@@ -18,12 +18,15 @@ import kotlin.random.Random
 //
 //}
 
-fun generateFiles(count: Int) {
+fun generateFiles(count: Int, rows: Int) {
     for (i in 1..count) {
         val name = i.toString()
-        val fileWriter = FileWriter(name+".txt")
+        val fileWriter = FileWriter(name + ".txt")
         val bufferedWriter = BufferedWriter(fileWriter)
-        bufferedWriter.write(Random.nextInt(-10, 10).toString())
+        for (i in 1..rows) {
+            bufferedWriter.write(Random.nextInt(-10, 10).toString() + "\n")
+        }
+
         println("Файл $i создан")
         bufferedWriter.close()
 
@@ -31,19 +34,28 @@ fun generateFiles(count: Int) {
     }
 
 }
-fun deleteFiles(count: Int){
-    for (i in  1..count){
+
+fun deleteFiles(count: Int) {
+    for (i in 1..count) {
         val name = i.toString()
-        val file = File(name+ ".txt")
-        if(file.delete()) println("Файл $i удалён")
+        val file = File(name + ".txt")
+        if (file.delete()) println("Файл $i удалён")
         else println("Чет не так")
     }
 
+
 }
+
+
 fun main() {
-    generateFiles(13)
+
+
+    generateFiles(18, 2)
     println("файлы готовы")
     deleteFiles(13)
+    val arrayOfSum = ArrayList<Int>()
+
+
 
 }
 
