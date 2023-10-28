@@ -11,5 +11,8 @@ suspend fun main() = coroutineScope{
         println("I'm computing another part of the answer")
         7
     }
+    launch {
+        println("Hello!")
+    }
     println("The answer is ${a.await() * b.await()}")
 }
