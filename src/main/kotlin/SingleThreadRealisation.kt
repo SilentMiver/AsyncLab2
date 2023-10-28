@@ -1,9 +1,8 @@
 import java.io.*
-import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 val count: Int = 18
-val rows: Int = 1000000
+val rows: Int = 10000000
 val arrayOfDigits = ArrayList<Int>()
 //
 //fun generateFiles(filename: String, insideNumber: Int) {
@@ -72,6 +71,7 @@ fun readDigits() {
 
 
 fun main() {
+    val time = System.currentTimeMillis()
 
 
     generateFiles(count, rows)
@@ -81,7 +81,7 @@ fun main() {
     arrayOfDigits.forEach { e -> sum += e }
     println(sum)
     deleteFiles()
-
+    println((System.currentTimeMillis() - time).toString() + " millis")
 
 
 
