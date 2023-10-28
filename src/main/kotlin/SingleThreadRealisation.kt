@@ -74,13 +74,13 @@ fun main() {
     val time = System.currentTimeMillis()
 
 
-    generateFiles(count, rows)
+    //generateFiles(count, rows)
     println("файлы готовы")
     readDigits()
     var sum = 0
     arrayOfDigits.forEach { e -> sum += e }
     println(sum)
-    deleteFiles()
+    //deleteFiles()
     println((System.currentTimeMillis() - time).toString() + " millis")
 
 

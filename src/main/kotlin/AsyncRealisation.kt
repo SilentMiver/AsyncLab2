@@ -63,12 +63,12 @@ suspend fun readDigitsAs() = coroutineScope {
 suspend fun main() {
     val time = System.currentTimeMillis()
 
-    generateFilesAs(countAs, rowsA)
+    //generateFilesAs(countAs, rowsA)
     readDigitsAs()
     var sum = 0
     arrayOfDigits.forEach { e -> sum += e }
     println(sum)
-    deleteFilesAs()
+    //deleteFilesAs()
     println((System.currentTimeMillis() - time).toString() + " millis")
 
 }
