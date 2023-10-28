@@ -1,10 +1,10 @@
-import java.io.BufferedWriter
-import java.io.File
-import java.io.FileWriter
-import java.util.ArrayList
+import java.io.*
+import kotlin.collections.ArrayList
 import kotlin.random.Random
 
-
+val count: Int = 18
+val rows: Int = 1000000
+val arrayOfDigits = ArrayList<Int>()
 //
 //fun generateFiles(filename: String, insideNumber: Int) {
 //    try {
@@ -35,7 +35,7 @@ fun generateFiles(count: Int, rows: Int) {
 
 }
 
-fun deleteFiles(count: Int) {
+fun deleteFiles() {
     for (i in 1..count) {
         val name = i.toString()
         val file = File(name + ".txt")
@@ -46,14 +46,42 @@ fun deleteFiles(count: Int) {
 
 }
 
+fun readDigits() {
+    try {
+        for (i in 1..count) {
+            val fileReader = FileReader("$i.txt");
+            val bufferedReader = BufferedReader(fileReader);
+            val rows = bufferedReader.lines()
+            println("Filename: $i")
+            var sum = 0
+            rows.forEach { e ->
+                if (e != null) sum+= e.toInt()
+             }
+            bufferedReader.close();
+            arrayOfDigits.add(sum)
+            println("Sum is: $sum")
+        }
+
+    } catch (e: IOException) {
+        System.out.println("Ошибка при чтении файла");
+        e.printStackTrace();
+
+    }
+}
+
+
 
 fun main() {
 
 
-    generateFiles(18, 2)
+    generateFiles(count, rows)
     println("файлы готовы")
-    deleteFiles(13)
-    val arrayOfSum = ArrayList<Int>()
+    readDigits()
+    var sum = 0
+    arrayOfDigits.forEach { e -> sum += e }
+    println(sum)
+    deleteFiles()
+
 
 
 
