@@ -50,7 +50,7 @@ suspend fun readDigitsAs() = coroutineScope {
                 }
                 bufferedReader.close();
                 arrayOfDigitsAs.add(sum)
-                println("Filename: $i\nSum is: $sum")
+                println("Filename: $i\nSum is: $sum \n ${Thread.currentThread().name}")
             }
         }
 

@@ -59,7 +59,7 @@ fun readDigits() {
             }
             bufferedReader.close();
             arrayOfDigits.add(sum)
-            println("Sum is: $sum")
+            println("Sum is: $sum \n ${Thread.currentThread().name}")
         }
 
     } catch (e: IOException) {

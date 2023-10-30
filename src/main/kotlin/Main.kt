@@ -31,6 +31,13 @@ suspend fun main() {
     val timeAsync = System.currentTimeMillis()
 
     //generateFilesAs(countAs, rowsA)
+    println(
+                "-------------------------------------------------------------- \n" +
+                "Starting Async Realisation \n" +
+                "-------------------------------------------------------------- "
+    )
+
+
     readDigitsAs()
     var sumAsync = 0
     arrayOfDigitsAs.forEach { e -> sumAsync += e }
