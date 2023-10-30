@@ -7,6 +7,7 @@ val countAs: Int = 18
 val rowsA: Int = 10000000
 val arrayOfDigitsAs = ArrayList<Int>()
 
+
 suspend fun generateFilesAs(count: Int, rows: Int) = coroutineScope {
     for (i in 1..countAs) {
         launch {
@@ -42,19 +43,19 @@ suspend fun readDigitsAs() = coroutineScope {
                 val fileReader = FileReader("$i.txt");
                 val bufferedReader = BufferedReader(fileReader);
                 val rows = bufferedReader.lines()
-                println("Filename: $i")
+
                 var sum = 0
                 rows.forEach { e ->
                     if (e != null) sum += e.toInt()
                 }
                 bufferedReader.close();
-                arrayOfDigits.add(sum)
-                println("Sum is: $sum")
+                arrayOfDigitsAs.add(sum)
+                println("Filename: $i\nSum is: $sum")
             }
         }
 
     } catch (e: IOException) {
-        System.out.println("Ошибка при чтении файла");
+        println("Ошибка при чтении файла");
         e.printStackTrace();
 
     }
@@ -66,7 +67,7 @@ suspend fun main() {
     //generateFilesAs(countAs, rowsA)
     readDigitsAs()
     var sum = 0
-    arrayOfDigits.forEach { e -> sum += e }
+    arrayOfDigitsAs.forEach { e -> sum += e }
     println(sum)
     //deleteFilesAs()
     println((System.currentTimeMillis() - time).toString() + " millis")

@@ -4,6 +4,7 @@ import kotlin.random.Random
 val count: Int = 18
 val rows: Int = 10000000
 val arrayOfDigits = ArrayList<Int>()
+
 //
 //fun generateFiles(filename: String, insideNumber: Int) {
 //    try {
@@ -54,8 +55,8 @@ fun readDigits() {
             println("Filename: $i")
             var sum = 0
             rows.forEach { e ->
-                if (e != null) sum+= e.toInt()
-             }
+                if (e != null) sum += e.toInt()
+            }
             bufferedReader.close();
             arrayOfDigits.add(sum)
             println("Sum is: $sum")
@@ -67,7 +68,6 @@ fun readDigits() {
 
     }
 }
-
 
 
 fun main() {
@@ -82,7 +82,6 @@ fun main() {
     println(sum)
     //deleteFiles()
     println((System.currentTimeMillis() - time).toString() + " millis")
-
 
 
 }
